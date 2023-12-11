@@ -1,0 +1,47 @@
+%CAL%
+    TPW
+    PSH W
+    SET W 1; JUMP UNCONDITIONALL 
+    JMP @0
+%CAL%
+
+%RET%
+    POP W
+    PSH X
+    SET X 6 ; CODE SIZE OF CAL
+    ADD W X 
+    POP X
+    JMP W
+%RET%
+
+#CAL PRINT_A
+#CAL INC_X
+#CAL PRINT_B
+SET X 7
+SET Y 7
+#CAL ADD_X_AND_Y
+DRW
+
+SET W 1 
+JMP $FF
+
+PRINT_A:
+    SET W 'A'
+    DRW
+    #RET
+
+INC_X:
+    SET W 1
+    ADD X W
+    #RET
+
+PRINT_B:
+    SET W 'B'
+    DRW
+    #RET
+
+; ADDS X AND Y AND STORES THE RESULT IN W.
+ADD_X_AND_Y:
+    SET W X
+    ADD W Y
+    #RET

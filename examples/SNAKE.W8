@@ -1,0 +1,46 @@
+SET W %00001000
+TWS
+
+LOOP:
+    SET W 'O'
+    DRW
+    WAI MOVE
+    JMP LOOP
+
+MOVE:
+    PSH W
+CHECK_A:
+    PSH I
+    POP W
+    SUB W 'A'
+    JMP CHECK_D ; IF NOT EQUAL
+    SUB X 1
+    POP W
+    JMP W
+CHECK_D:
+    PSH I
+    POP W
+    SUB W 'D'
+    JMP CHECK_W ; IF NOT EQUAL
+    ADD X 1
+    POP W
+    JMP W
+CHECK_W:
+    PSH I
+    POP W
+    SUB W 'W'
+    JMP CHECK_S ; IF NOT EQUAL
+    SUB Y 1
+    POP W
+    JMP W
+CHECK_S:
+    PSH I
+    POP W
+    SUB W 'S'
+    JMP END ; IF NOT EQUAL
+    ADD Y 1
+    SET W 1
+END:
+    POP W
+    JMP W
+

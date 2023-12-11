@@ -1,0 +1,24 @@
+PRINT:
+    SET W %00001000
+    TWS
+    SET W 0
+    WAI HANDLER
+    ADD X 1
+
+    SET W X
+    SUB W 8
+    JMP PRINT
+
+    SET X 0
+    ADD Y 1
+        
+    SET W 1
+    JMP PRINT
+
+HANDLER:
+    PSH W
+    PSH I
+    POP W
+    DRW
+    POP W
+    JMP W

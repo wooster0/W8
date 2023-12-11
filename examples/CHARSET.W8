@@ -1,0 +1,29 @@
+PSH W
+DRAW:
+    POP W
+    ; DRAW CHARACTER.
+    DRW
+    ; INCREMENT W.
+    ADD W 1
+    PSH W
+
+    ; INCREMENT X-AXIS VALUE.
+    ADD X 1
+
+    ; CHECK IF X IS 8.
+    SET W 8
+    SUB W X
+    ; IF W IS ZERO, THIS JUMP WILL BE SKIPPED.
+    JMP DRAW
+
+    ; GO TO THE NEXT ROW.
+    ADD Y 1
+    SET X 0
+    ; CHECK IF Y IS 8.
+    SET W 8
+    SUB W Y
+    ; IF W IS ZERO, THIS JUMP WILL BE SKIPPED.
+    JMP DRAW
+
+SET W 1
+JMP $FF
